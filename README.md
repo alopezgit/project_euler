@@ -1,2 +1,2 @@
-# project_euler
-Codes for project euler. 
+# Project Euler
+Codes for Project Euler in Python.
