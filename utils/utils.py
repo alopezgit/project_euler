@@ -38,3 +38,16 @@ def factors_number(n):
     ## We check factors up to sqrt(n) using a generator
     return set(reduce(list.__add__,
                     ([i, n//i] for i in range(1, int(pow(n, 0.5))+1, step) if n % i == 0)))
+
+def fibonacci():
+    ## A generator for the fibonacci sequence
+    last_number = 1
+    current_number = 1
+    index = 1
+    while index < 3:
+        yield 1, index
+        index += 1
+    while True:
+        current_number, last_number = current_number + last_number, current_number
+        yield current_number, index
+        index += 1
