@@ -1,4 +1,4 @@
-## Code for problem https://projecteuler.net/problem=14
+## Code for problem https://projecteuler.net/problem=17
 
 ## For number < 20, the names are quite irregular
 ## Code quite ugly
