@@ -1,10 +1,8 @@
 ## Code for problem https://projecteuler.net/problem=4
-
-def check_palindrome(number):
-    number = str(number)
-    if number == number[::-1]:
-        return True
-    return False
+import sys
+from os import path
+sys.path.append( path.dirname( path.dirname( path.dirname( path.abspath(__file__) ) ) ) )
+from utils import utils
 
 def largest_palindrome():
     ## Tries two different 3-digit numbers and finds largest palindrome
@@ -12,7 +10,7 @@ def largest_palindrome():
     factor_1 = factor_2 = 999
     largest_value = (0, 0, 0)
     while True:
-        if factor_1 * factor_2 > largest_value[0] and check_palindrome(factor_1 * factor_2):
+        if factor_1 * factor_2 > largest_value[0] and utils.check_palindrome(factor_1 * factor_2):
             largest_value = (factor_1 * factor_2, factor_1, factor_2)
         factor_1 -= 1
         if factor_1 == 100:
@@ -21,4 +19,6 @@ def largest_palindrome():
         if factor_2 == 100:
             return largest_value
 
-print largest_palindrome()
+result = largest_palindrome()
+
+print 'The largest palindrome is {:d}, product of {:d} and {:d}'.format(*result)

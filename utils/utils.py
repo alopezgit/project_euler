@@ -1,17 +1,16 @@
 import math
 
-def check_prime(number, list_primes = []):
-    if len(list_primes) == 0:
-        list_primes = [2]
+def check_prime(number):
+    if (number > 2 and number % 2 == 0) or number < 2:
+        return False
     sqrt_number = math.sqrt(number)
-    pos = 0
+    factor = 3
     while True:
-        factor = list_primes[pos]
-        pos += 1
-        if factor > sqrt_number or pos == len(list_primes):
+        if factor > sqrt_number:
             break
         if number % factor == 0:
             return False
+        factor += 2
     return True
 
 def prime_factors(number):
@@ -51,3 +50,9 @@ def fibonacci():
         current_number, last_number = current_number + last_number, current_number
         yield current_number, index
         index += 1
+
+def check_palindrome(number):
+    number = str(number)
+    if number == number[::-1]:
+        return True
+    return False
