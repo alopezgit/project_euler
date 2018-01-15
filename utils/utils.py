@@ -14,7 +14,7 @@ def check_prime(number):
     return True
 
 def prime_factors(number):
-    ## Returns the prime factors of the number
+    ## Returns the prime factors of the number and 1
     factor = 2
     list_factors = []
     list_factors.append(1)
@@ -56,3 +56,16 @@ def check_palindrome(number):
     if number == number[::-1]:
         return True
     return False
+
+def is_pandigital(nr, n, include_zero = False):
+    nr = str(nr)
+    initial = 0 if include_zero else 1
+    for i in map(str, reversed(range(initial, n + 1))):
+        if i not in nr:
+            return False
+        else:
+            nr = nr.replace(i,'', 1)
+    if len(nr) > 0:
+        return False
+    else:
+        return True
